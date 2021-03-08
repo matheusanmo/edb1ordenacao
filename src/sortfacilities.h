@@ -12,8 +12,9 @@ double time_sorts_mean(
         vector<uint> (*vec_gen)(int),
         int          vec_size,
         int          run_count);
-void selection_sort(vector<uint> &vec);
-void insertion_sort(vector<uint> &vec);
+void selection_sort (vector<uint> &vec);
+void insertion_sort (vector<uint> &vec);
+void bubble_sort    (vector<uint> &vec);
 
 #endif
 

@@ -62,4 +62,13 @@ void insertion_sort(vector<uint> &vec) {
     return;
 }
 
-
+void bubble_sort(vector<uint> &vec) {
+    for (int i = vec.size() - 1; i > 0; i--) {
+        for (int j = 0; j < i; j++) {
+            if (vec[j] > vec[j+1]) {
+                swap(vec[j], vec[j+1]);
+            }
+        }
+    }
+    return;
+}
