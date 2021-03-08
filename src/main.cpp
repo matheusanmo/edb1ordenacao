@@ -15,10 +15,12 @@ int main() {
     //double dt = time_sorts_mean(&selection_sort, &gen_random_uniform, 1000, 25);
     int n{};
     cin >> n;
-    auto vec =gen_random_uniform(n);
-    cout << is_increasing(vec) << endl;
-    selection_sort(vec);
-    cout << is_increasing(vec) << endl;
+    auto vec =gen_random_uniform(n, 10);
+    print_vector(vec);
+    cout << is_increasing(vec) << endl << endl;
+    insertion_sort(vec);
+    print_vector(vec);
+    cout << is_increasing(vec) << endl << endl;
     return 0;
 }
 

@@ -13,6 +13,7 @@ double time_sorts_mean(
         int          vec_size,
         int          run_count);
 void selection_sort(vector<uint> &vec);
+void insertion_sort(vector<uint> &vec);
 
 #endif
 

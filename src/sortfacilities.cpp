@@ -50,7 +50,16 @@ void selection_sort(vector<uint> &vec) {
 }
 
 void insertion_sort(vector<uint> &vec) {
-
+    for (size_t i = 1; i < vec.size(); i++) {
+        for (int j = i; j > 0; j--) {
+            if (vec[j] < vec[j-1]) {
+                swap(vec[j], vec[j-1]);
+            } else {
+                break;
+            }
+        }
+    }
+    return;
 }
 
 

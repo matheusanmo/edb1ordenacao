@@ -6,7 +6,7 @@
 #include <vector>
 using std::vector;
 
-vector<uint> gen_random_uniform        (const int n);
+vector<uint> gen_random_uniform        (const int n, uint max_bound = 0);
 vector<uint> gen_random_non_increasing (const int n);
 vector<uint> gen_random_non_decreasing (const int n);
 vector<uint> gen_random_preordered     (const int n, double p);
