@@ -1,15 +1,18 @@
 #ifndef SORTFACILITIES_H
 #define SORTFACILITIES_H
 
+#include "uint.h"
+
 #include <vector>
 using std::vector;
 
 
-template <typename T>
-int time_sort(void (*sort_fun)(vector<T>&), vector<T> &vec);
-
-template <typename T>
-void selection_sort(vector<T> &vec);
+double time_sorts_mean(
+        void         (*sort_fun)(vector<uint>&),
+        vector<uint> (*vec_gen)(int),
+        int          vec_size,
+        int          run_count);
+void selection_sort(vector<uint> &vec);
 
 #endif
 

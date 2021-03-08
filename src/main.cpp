@@ -12,19 +12,13 @@ using std::endl;
 using std::vector;
 
 int main() {
+    //double dt = time_sorts_mean(&selection_sort, &gen_random_uniform, 1000, 25);
     int n{};
     cin >> n;
-
-    vector<uint> vec = gen_random_uniform(n);
-    for (auto const &x : vec) {
-        cout << x << endl;
-    }
-    cout << endl;
-
-    auto dt = time_sort<uint>(&selection_sort<uint>, vec);
-
-    cout << dt;
-
+    auto vec =gen_random_uniform(n);
+    cout << is_increasing(vec) << endl;
+    selection_sort(vec);
+    cout << is_increasing(vec) << endl;
     return 0;
 }
 

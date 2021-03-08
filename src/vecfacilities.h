@@ -10,7 +10,7 @@ vector<uint> gen_random_uniform        (const int n);
 vector<uint> gen_random_non_increasing (const int n);
 vector<uint> gen_random_non_decreasing (const int n);
 vector<uint> gen_random_preordered     (const int n, double p);
-template <typename T>
-void         print_vector              (vector<T> const &vec);
+bool         is_increasing             (vector<uint> const &vec);
+void         print_vector              (vector<uint> const &vec);
 
 #endif

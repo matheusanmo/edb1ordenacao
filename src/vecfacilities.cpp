@@ -30,8 +30,7 @@ uint gen_seed() {
 /**
  * Retorna `false` quando um dos elementos de `vec` é estritamente menor que o anterior.
  */
-template <typename T>
-bool is_increasing(vector<T> const &vec) {
+bool is_increasing(vector<uint> const &vec) {
     if (vec.size() == 0) {
         return true;
     }
@@ -47,8 +46,7 @@ bool is_increasing(vector<T> const &vec) {
 /**
  * Retorna `false` quando um dos elementos de `vec` é estritamente maior que o anterior.
  */
-template <typename T>
-bool is_decreasing(vector<T> const &vec) {
+bool is_decreasing(vector<uint> const &vec) {
     if (vec.size() == 0) {
         return true;
     }
@@ -135,8 +133,7 @@ vector<uint> gen_random_preordered(const int n, double p) {
 /**
  * Facilidade para printar vetores.
  */
-template <typename T>
-void print_vector(vector<T> const &vec) {
+void print_vector(vector<uint> const &vec) {
     for (auto const &x : vec) {
         cout << x << endl;
     }
