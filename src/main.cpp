@@ -1,6 +1,5 @@
 #include "uint.h"
 #include "vecfacilities.h"
-#include "timefacilities.h"
 #include "sortfacilities.h"
 
 #include <iostream>
@@ -18,7 +17,7 @@ int main() {
     auto vec =gen_random_uniform(n);
     print_vector(vec);
     cout << is_increasing(vec) << endl << endl;
-    bubble_sort(vec);
+    shell_sort(vec);
     print_vector(vec);
     cout << is_increasing(vec) << endl << endl;
     return 0;

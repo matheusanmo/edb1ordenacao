@@ -12,6 +12,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_compile_options(-Wall -Wextra)
 
 # definir nome de executavel e arquivos que o constroem
-add_executable(ordenacao src/main.cpp           src/vecfacilities.cpp
-                         src/sortfacilities.cpp src/timefacilities.cpp)
+add_executable(ordenacao src/main.cpp src/vecfacilities.cpp src/sortfacilities.cpp)
 
