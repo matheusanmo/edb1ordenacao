@@ -12,12 +12,11 @@ using std::vector;
 using std::chrono::high_resolution_clock;
 using std::chrono::duration;
 
-#include <algorithm>
-using std::reverse;
+#include <algorithm> // std::reverse;
 
-int exponent(int a, int b) {
-    int accum = 1;
-    for (int i = 0; i < b; i++) {
+uint exponent(uint a, uint b) {
+    uint accum = 1;
+    for (uint i = 0; i < b; i++) {
         accum *= a;
     }
     return accum;
@@ -87,15 +86,15 @@ void bubble_sort(vector<uint> &vec) {
 void shell_sort(vector<uint> &vec, vector<uint> gaps_sequence) {
     // gaps_sequence deve ser decrescente
     if (gaps_sequence.size() == 0) {
-        // A000225
-        // sequencia na forma 2^k - 1 garante complexidade OMEGA(N^3/2)
+        // sequencia da forma 2^k - 1 garante complexidade pior caso perto de N^5/4
         // https://dl.acm.org/doi/10.1145/366552.366557
-        int k = 1;
-        while ((uint)exponent(2, k) < vec.size()) {
-            gaps_sequence.push_back((uint)exponent(2, k));
+        // knuth pag.95
+        uint k = 1;
+        while (exponent(2, k) - 1 < vec.size()) {
+            gaps_sequence.push_back(exponent(2, k) - 1);
             k++;
         }
-        reverse(gaps_sequence.begin(), gaps_sequence.end());
+        std::reverse(gaps_sequence.begin(), gaps_sequence.end());
     }
     for (uint gap : gaps_sequence) {
         for (uint i = 0; i + gap < vec.size(); i++) {
