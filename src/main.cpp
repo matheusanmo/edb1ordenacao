@@ -14,7 +14,7 @@ int main() {
     //double dt = time_sorts_mean(&selection_sort, &gen_random_uniform, 1000, 25);
     int n{};
     cin >> n;
-    vector<uint> vec = gen_random_uniform(n, 1000);
+    vector<uint> vec = gen_random_uniform(n);
     print_vector(vec);
     cout << is_increasing(vec) << endl << endl;
     shell_sort(vec);

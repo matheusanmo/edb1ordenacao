@@ -83,6 +83,9 @@ void bubble_sort(vector<uint> &vec) {
     return;
 }
 
+/**
+ * Usa insertion sort para h-ordenar o vetor
+ */
 void shell_sort(vector<uint> &vec, vector<uint> gaps_sequence) {
     // gaps_sequence deve ser decrescente
     if (gaps_sequence.size() == 0) {
@@ -97,11 +100,18 @@ void shell_sort(vector<uint> &vec, vector<uint> gaps_sequence) {
         std::reverse(gaps_sequence.begin(), gaps_sequence.end());
     }
     for (uint gap : gaps_sequence) {
-        for (uint i = 0; i + gap < vec.size(); i++) {
-            if (vec[i+gap] < vec[i]) {
-                swap(vec[i+gap], vec[i]);
+        // h-sortear o array usando insertion sort
+        for (uint i = gap; i < vec.size(); i += gap) {
+            for (uint j = i; j >= gap; j -= gap) {
+                if (vec[j] < vec[j-gap]) {
+                    swap(vec[j], vec[j-gap]);
+                } else  {
+                    break;
+                }
+
             }
         }
     }
     return;
 }
+
