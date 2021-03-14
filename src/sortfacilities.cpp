@@ -12,7 +12,8 @@ using std::vector;
 using std::chrono::high_resolution_clock;
 using std::chrono::duration;
 
-#include <algorithm> // std::reverse;
+#include <algorithm> // std::reverse
+#include <iterator>  // std::next
 
 uint exponent(uint a, uint b) {
     uint accum = 1;
@@ -116,11 +117,53 @@ void shell_sort(vector<uint> &vec, vector<uint> gaps_sequence) {
     return;
 }
 
-void merge_sort(vector<uint> &vec) {
-    uint midpoint = 0;
+void merge(vector<uint> &vec, uint p, uint q, uint r) {
+    // copiando vec[p..r] na memoria
+    auto p_iterator = std::next(vec.begin(), p);
+    auto q_iterator = std::next(vec.begin(), q);
+    auto r_iterator = std::next(vec.begin(), r);
+    vector<uint> vec_l (p_iterator, q_iterator);
+    vector<uint> vec_r (q_iterator, r_iterator);
 
-
-
+    auto li = vec_l.begin();
+    auto ri = vec_r.begin();
+    for (uint i = p; i < r; i++) {
+        if (li == vec_l.end()) {
+            while (ri != vec_r.end()) {
+                vec[i] = *ri++;
+                i++;
+            }
+            break;
+        }
+        if (ri == vec_r.end()) {
+            while (li != vec_l.end()) {
+                vec[i] = *li++;
+                i++;
+            }
+            break;
+        }
+        if (*li <= *ri) {
+            vec[i] = *li++;
+        } else {
+            vec[i] = *ri++;
+        }
+    }
     return;
+}
+
+void merge_sort_worker(vector<uint> &vec, uint p, uint r) {
+    if (r - p < 2) { // caso base
+        return;
+    }
+    uint q = (p + r) / 2;
+    merge_sort_worker(vec, p, q);
+    merge_sort_worker(vec, q, r);
+    merge(vec, p, q, r);
+    return;
+}
+
+// cormen adaptado sem sentineles
+void merge_sort(vector<uint> &vec) {
+    return merge_sort_worker(vec, 0, vec.size());
 }
 

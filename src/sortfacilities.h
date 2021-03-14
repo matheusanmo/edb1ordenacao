@@ -14,6 +14,7 @@ double time_sorts_mean (
 void   selection_sort  (vector<uint> &vec);
 void   insertion_sort  (vector<uint> &vec);
 void   bubble_sort     (vector<uint> &vec);
+void   merge_sort      (vector<uint> &vec);
 void   shell_sort      (vector<uint> &vec, vector<uint> gaps_sequence = vector<uint>(0));
 
 #endif
