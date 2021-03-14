@@ -100,18 +100,27 @@ void shell_sort(vector<uint> &vec, vector<uint> gaps_sequence) {
         std::reverse(gaps_sequence.begin(), gaps_sequence.end());
     }
     for (uint gap : gaps_sequence) {
-        // h-sortear o array usando insertion sort
-        for (uint i = gap; i < vec.size(); i += gap) {
-            for (uint j = i; j >= gap; j -= gap) {
-                if (vec[j] < vec[j-gap]) {
-                    swap(vec[j], vec[j-gap]);
-                } else  {
-                    break;
+        for (uint offset = 0; offset < gap; offset++) {
+            // gap-sortear o array usando insertion sort
+            for (uint i = gap + offset; i < vec.size(); i += gap) {
+                for (uint j = i; j >= gap; j -= gap) {
+                    if (vec[j] < vec[j-gap]) {
+                        swap(vec[j], vec[j-gap]);
+                    } else  {
+                        break;
+                    }
                 }
-
             }
         }
     }
+    return;
+}
+
+void merge_sort(vector<uint> &vec) {
+    uint midpoint = 0;
+
+
+
     return;
 }
 
