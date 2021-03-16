@@ -85,9 +85,9 @@ void bubble_sort(vector<uint> &vec) {
 }
 
 /**
- * Usa insertion sort para h-ordenar o vetor
+ * Usa insertion sort para h-ordenar o vetor. Espera gaps_sequence
  */
-void shell_sort(vector<uint> &vec, vector<uint> gaps_sequence) {
+void shell_sort_gaps(vector<uint> &vec, vector<uint> gaps_sequence) {
     // gaps_sequence deve ser decrescente
     if (gaps_sequence.size() == 0) {
         // sequencia da forma 2^k - 1 garante complexidade pior caso perto de N^5/4
@@ -115,6 +115,14 @@ void shell_sort(vector<uint> &vec, vector<uint> gaps_sequence) {
         }
     }
     return;
+}
+
+/**
+ * Ordena com gaps padrao. Funcao existe mais pra manter assinatura uniforme entre
+ * as funcoes e facilitar passagem de ponteiros para funcoes de ordenacao.
+ */
+void shell_sort(vector<uint> &vec) {
+    return shell_sort_gaps(vec, vector<uint>(0));
 }
 
 void merge(vector<uint> &vec, uint p, uint q, uint r) {

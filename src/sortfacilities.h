@@ -10,12 +10,12 @@ double time_sorts_mean (
         void         (*sort_fun)(vector<uint>&),
         vector<uint> (*vec_gen)(int),
         int          vec_size,
-        int          run_count);
+        int          run_count = 20);
 void   selection_sort  (vector<uint> &vec);
 void   insertion_sort  (vector<uint> &vec);
 void   bubble_sort     (vector<uint> &vec);
 void   merge_sort      (vector<uint> &vec);
-void   shell_sort      (vector<uint> &vec, vector<uint> gaps_sequence = vector<uint>(0));
+void   shell_sort      (vector<uint> &vec);
 
 #endif
 

@@ -61,10 +61,9 @@ bool is_decreasing(vector<uint> const &vec) {
 
 /**
  * Cria `vector` contendo `n` `uints` gerados aleatoriamente seguindo uma distribuição
- * uniforme. Os numeros pertencem ao intervalo `[0,max_bound]` exceto quando `maxbound=0`. Quando
- * `maxbound = 0` os numeros sao gerados sem bound.
+ * uniforme. 
  */
-vector<uint> gen_random_uniform(const int n, uint max_bound) {
+vector<uint> gen_random_uniform(int const n) {
     if (n == 0) {
         return vector<uint>();
     }
@@ -72,10 +71,6 @@ vector<uint> gen_random_uniform(const int n, uint max_bound) {
 
     std::default_random_engine generator (gen_seed());
     std::uniform_int_distribution<uint> distribution;
-    if (max_bound) {
-        distribution = std::uniform_int_distribution<uint>(0, max_bound);
-
-    }
 
     for (int i = 0; i < n; i++) {
         new_vec[i] = distribution(generator);
