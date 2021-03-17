@@ -16,6 +16,7 @@ void   insertion_sort  (vector<uint> &vec);
 void   bubble_sort     (vector<uint> &vec);
 void   merge_sort      (vector<uint> &vec);
 void   shell_sort      (vector<uint> &vec);
+void   quick_sort      (vector<uint> &vec);
 
 #endif
 

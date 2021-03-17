@@ -15,6 +15,10 @@ using std::chrono::duration;
 #include <algorithm> // std::reverse
 #include <iterator>  // std::next
 
+// DEBUG
+#include <iostream>
+//
+
 uint exponent(uint a, uint b) {
     uint accum = 1;
     for (uint i = 0; i < b; i++) {
@@ -173,5 +177,40 @@ void merge_sort_worker(vector<uint> &vec, uint p, uint r) {
 // cormen adaptado sem sentineles
 void merge_sort(vector<uint> &vec) {
     return merge_sort_worker(vec, 0, vec.size());
+}
+
+uint partition(vector<uint> &vec, uint p, uint r) {
+    uint i = p;
+    for (uint j = p; j < r; j++) {
+        if (vec[j] <= vec[r]) {
+            swap(vec[i], vec[j]);
+            i++;
+        }
+    }
+    swap(vec[i], vec[r]);
+    return i;
+}
+
+// [p, r]
+void quick_sort_worker(vector<uint> &vec, uint p, uint r) {
+    if (p < r) {
+        uint q = partition(vec, p, r);
+        if (q > 0) {
+            quick_sort_worker(vec, p, q-1);
+        } else {
+            quick_sort_worker(vec, p, q);
+        }
+        quick_sort_worker(vec, q+1, r);
+    }
+    return;
+}
+
+// cormen, adaptado sem sentieneles
+void quick_sort(vector<uint> &vec) {
+    // evitar possivel segfault tentando `vec.size() -1`
+    if (vec.empty()) {
+        return;
+    }
+    quick_sort_worker(vec, 0, vec.size() - 1);
 }
 

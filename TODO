@@ -1,1 +1,2 @@
-- templatizar `is_ascending`, que deve receber ponteiro para funcao de comparacao 
+- ler tamanhos.txt e colocar output em output_HH_MM_SS.txt
+

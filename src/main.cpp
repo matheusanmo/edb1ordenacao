@@ -11,8 +11,13 @@ using std::endl;
 using std::vector;
 
 int main(int argc, char* argv[]) {
-    double dt = time_sorts_mean(&merge_sort, &gen_random_uniform, 10000);
-    cout << dt << "ms" << endl;
+    // double dt = time_sorts_mean(&quick_sort, &gen_random_uniform, 10000);
+    // cout << dt << "ms" << endl;
+    for (int i = 2; i < 100000; i*=k) {
+        vector<uint> vec = gen_random_uniform(i);
+        quick_sort(vec);
+        cout << std::boolalpha << is_increasing(vec) << " " << i << endl;
+    }
     return 0;
 }
 
